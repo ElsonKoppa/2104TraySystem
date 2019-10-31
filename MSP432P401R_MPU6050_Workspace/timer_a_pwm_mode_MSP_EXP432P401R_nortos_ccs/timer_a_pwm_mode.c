@@ -57,73 +57,200 @@
 /* Standard Includes */
 #include <stdint.h>
 #include <stdbool.h>
+#include <math.h>
 
-//![Simple Timer_A Config]
-/* Timer_A PWM Configuration Parameter */
+
 Timer_A_PWMConfig pwmConfig =
 {
+        //uint_fast16_t clockSource;
         TIMER_A_CLOCKSOURCE_SMCLK,
+        //uint_fast16_t clockSourceDivider;
         TIMER_A_CLOCKSOURCE_DIVIDER_1,
-        32000,
+        //uint_fast16_t timerPeriod;
+        1500,
+        //uint_fast16_t compareRegister;
         TIMER_A_CAPTURECOMPARE_REGISTER_1,
+        //uint_fast16_t compareOutputMode;
         TIMER_A_OUTPUTMODE_RESET_SET,
-        3200
+        //uint_fast16_t dutyCycle;
+        100
 };
-//![Simple Timer_A Config]
 
+// PWM - PIN - 5.6 - TIMER_A2_BASE
+// PWM - PIN - 2.4 - TIMER_A0_BASE
+int speed = 1000;
+void delayMs(int n);
+void turn_cw(float a);
+void turn_acw(float a);
+void init_pwm(int port, int pin);
 int main(void)
 {
     /* Halting the watchdog */
     MAP_WDT_A_holdTimer();
 
-    //![Simple Timer_A Example]
-    /* Setting MCLK to REFO at 128Khz for LF mode
-     * Setting SMCLK to 64Khz */
+
+    /* Setting MCLK to REFO at 128Khz for LF mode setting SMCLK to 64Khz
     MAP_CS_setReferenceOscillatorFrequency(CS_REFO_128KHZ);
     MAP_CS_initClockSignal(CS_MCLK, CS_REFOCLK_SELECT, CS_CLOCK_DIVIDER_1);
     MAP_CS_initClockSignal(CS_SMCLK, CS_REFOCLK_SELECT, CS_CLOCK_DIVIDER_2);
     MAP_PCM_setPowerState(PCM_AM_LF_VCORE0);
 
-    /* Configuring GPIO2.4 as peripheral output for PWM  and P6.7 for button
-     * interrupt */
-    MAP_GPIO_setAsPeripheralModuleFunctionOutputPin(GPIO_PORT_P2, GPIO_PIN4,
-            GPIO_PRIMARY_MODULE_FUNCTION);
-    MAP_GPIO_setAsInputPinWithPullUpResistor(GPIO_PORT_P1, GPIO_PIN1);
-    MAP_GPIO_clearInterruptFlag(GPIO_PORT_P1, GPIO_PIN1);
-    MAP_GPIO_enableInterrupt(GPIO_PORT_P1, GPIO_PIN1);
+    // Configuring GPIO2.4 as peripheral output for PWM
+    MAP_GPIO_setAsPeripheralModuleFunctionOutputPin(GPIO_PORT_P5, GPIO_PIN6, GPIO_PRIMARY_MODULE_FUNCTION);
 
-    /* Configuring Timer_A to have a period of approximately 500ms and
-     * an initial duty cycle of 10% of that (3200 ticks)  */
-    MAP_Timer_A_generatePWM(TIMER_A0_BASE, &pwmConfig);
-    //![Simple Timer_A Example]
+    // Configuring Timer_A to have a period of approximately 20ms
+    MAP_Timer_A_generatePWM(TIMER_A2_BASE, &pwmConfig);*/
 
-    /* Enabling interrupts and starting the watchdog timer */
-    MAP_Interrupt_enableInterrupt(INT_PORT1);
-    MAP_Interrupt_enableSleepOnIsrExit();
-    MAP_Interrupt_enableMaster();
 
-    /* Sleeping when not in use */
+    init_pwm(5, 64); //pin 5.6
+
+
+
+    P1DIR &= ~BIT1;
+    P1DIR &= ~BIT4;
+    //ENABLE REGISTER
+    P1REN |= BIT1;
+    P1REN |= BIT4;
+    //PULL UP RESISTER
+    P1OUT |= BIT1;
+    P1OUT |= BIT4;
+    //ENABLE INTERRUPT
+    P1IE |= BIT1;
+    P1IE |= BIT4;
+    //HIGH TO LOW TRANSITION
+    P1IES |= BIT1;
+    P1IES |= BIT4;
+    //CLEAR INTERRUPT FLAG
+    P1IFG = 0;
+
+    NVIC->ISER[1] = 1 << ((PORT1_IRQn) & 31);
+    __enable_interrupts();
+
+    //SET LED TO OUTPUT
+    P1DIR |= BIT0;
+    P2DIR |= BIT0;
+    P2DIR |= BIT1;
+    P2DIR |= BIT2;
+    //CLEAR THE LED
+    P1OUT &= ~BIT0;
+    P2OUT &= ~BIT0;
+    P2OUT &= ~BIT1;
+    P2OUT &= ~BIT2;
+
+    int counter = 0;
     while (1)
     {
-        MAP_PCM_gotoLPM0();
+        if (counter == 0){
+            //CLEAR UNWANTED LED
+            P2OUT &= ~BIT0;
+            P2OUT &= ~BIT1;
+            //TOGGLE RED LED
+            P1OUT ^= BIT0;
+            //ON BLUE LED
+            P2OUT |= BIT2;
+        }
+        else if (counter == 1){
+            //CLEAR UNWANTED LED
+            P2OUT &= ~BIT0;
+            P2OUT &= ~BIT2;
+            //ON GREEN LED
+            P2OUT |= BIT1;
+        }
+        else if (counter == 2){
+            //CLEAR UNWANTED LED
+            P2OUT &= ~BIT1;
+            P2OUT &= ~BIT2;
+            //ON RED LED
+            P2OUT |= BIT0;
+            counter = -1;
+        }
+        //delayMs(speed);
+        counter += 1;
+
+        int a;
+        //pwmConfig.dutyCycle = 102;  //102 is flat
+        //for(a=10000; a>0; a--);
+        //MAP_Timer_A_generatePWM(TIMER_A2_BASE, &pwmConfig);
+
     }
 }
 
-/* Port1 ISR - This ISR will progressively step up the duty cycle of the PWM
- * on a button press
- */
-void PORT1_IRQHandler(void)
+void delayMs(int n)
 {
-    uint32_t status = MAP_GPIO_getEnabledInterruptStatus(GPIO_PORT_P1);
-    MAP_GPIO_clearInterruptFlag(GPIO_PORT_P1, status);
+    int i;
 
-    if (status & GPIO_PIN1)
-    {
-        if(pwmConfig.dutyCycle == 28800)
-            pwmConfig.dutyCycle = 3200;
-        else
-            pwmConfig.dutyCycle += 3200;
+    TIMER32_1->LOAD = 3000 - 1;
+    TIMER32_1->CONTROL = 0xC2;
 
-        MAP_Timer_A_generatePWM(TIMER_A0_BASE, &pwmConfig);
+    for(i = 0; i < n; i++) {
+        while((TIMER32_1->RIS & 1) == 0);
+        TIMER32_1->INTCLR = 0;
     }
 }
+
+
+void PORT1_IRQHandler(void){
+    int a;
+    //left button click left up
+    if(P1IFG & BIT1){
+//        pwmConfig.dutyCycle = 50;  //50 is left up
+//        //for(a=5000; a>0; a--);
+//        MAP_Timer_A_generatePWM(TIMER_A2_BASE, &pwmConfig);
+        turn_cw(45);
+        P1IFG &= ~BIT1;
+    }
+    //right button click right up
+    else if (P1IFG & BIT4){
+//        pwmConfig.dutyCycle = 150;  //150 is right up
+//        //for(a=5000; a>0; a--);
+//        MAP_Timer_A_generatePWM(TIMER_A2_BASE, &pwmConfig);
+        turn_acw(45);
+        P1IFG &= ~BIT4;
+    }
+}
+
+
+void init_pwm(int port, int pin){\
+    MAP_CS_setReferenceOscillatorFrequency(CS_REFO_128KHZ);
+    MAP_CS_initClockSignal(CS_MCLK, CS_REFOCLK_SELECT, CS_CLOCK_DIVIDER_1);
+    MAP_CS_initClockSignal(CS_SMCLK, CS_REFOCLK_SELECT, CS_CLOCK_DIVIDER_2);
+    MAP_PCM_setPowerState(PCM_AM_LF_VCORE0);
+
+    // Configuring GPIO2.4 as peripheral output for PWM
+    MAP_GPIO_setAsPeripheralModuleFunctionOutputPin(port, pin, GPIO_PRIMARY_MODULE_FUNCTION);
+
+    // Configuring Timer_A to have a period of approximately 20ms
+    MAP_Timer_A_generatePWM(TIMER_A2_BASE, &pwmConfig);
+
+
+}
+
+
+void turn_cw(float degree){
+    int finalPwm = 0;
+    int base_pwm = 50;
+    //make value go lower
+    finalPwm =base_pwm + floor(degree/90.0 * 50);
+    pwmConfig.dutyCycle = finalPwm;
+    MAP_Timer_A_generatePWM(TIMER_A2_BASE, &pwmConfig);
+}
+
+void turn_acw(float degree){
+    int finalPwm = 0;
+    int base_pwm = 150;
+    //make value go lower
+    finalPwm =base_pwm - floor(degree/90.0 * 50);
+    pwmConfig.dutyCycle = finalPwm;
+    MAP_Timer_A_generatePWM(TIMER_A2_BASE, &pwmConfig);
+}
+
+
+/*
+pwmConfig.dutyCycle = b;
+b = b + 5; //changing this value will rotate lower distance (original value +10)
+if(b == 170)
+b = 40; // the bigger the number the shorter it start from
+for(a=5000; a>0; a--); // change delay
+MAP_Timer_A_generatePWM(TIMER_A2_BASE, &pwmConfig);
+
+*/
