@@ -36,17 +36,16 @@
 #include <stdint.h>
 #include <stddef.h>
 #include <unistd.h>
-#include <stdbool.h>
-#include <math.h>
+
 #include <stdio.h>
 #include "msp432_mpu6050.h"
 #include "msp.h"
+/* DriverLib Includes */
+//#include <ti/devices/msp432p4xx/driverlib/driverlib.h>
+
 /*
  *  ======== mainThread ========
  */
-
-
-
 void *mainThread(void *arg0)
 {
     printf("\n== Start of thread ==\n\n");
@@ -54,8 +53,10 @@ void *mainThread(void *arg0)
     P1OUT &= ~BIT0;
     P6REN |= 0x30;
     P6OUT |= 0x30;
+
     printf("Startup MPU6050\n\n");
     startMPU6050();
+    SysTick_init();
     //delayMs(5000);
     //calibrateMPU6050();
     printf("==================================\n");
@@ -65,20 +66,27 @@ void *mainThread(void *arg0)
             P1OUT ^= BIT0;
             //getGyroData();
             // Gyro Data
+            int Start = SysTick->VAL;
             int16_t* gyro = getGyro();
-            setDegree(gyro);
-            printf("[Gyro]  X = %-4d, Y =  %-4d, Z = %-4d\n", (gyro[0]/131)+4, (gyro[1]/131)-4, gyro[2]/131);
-            int degree = getDegree();
-            printf("%d\n", degree);
-
-
+            int End = SysTick->VAL;
+            int Delta = 0xFFFFFF & (Start - End);
+            int x = (gyro[0]/131)+4;
+            int y = (gyro[1]/131)-4;
+            int z = gyro[2]/131;
+//            printf("[Gyro]  X = %-4d, Y =  %-4d, Z = %-4d\n", (gyro[0]/131)+4, (gyro[1]/131)-4, gyro[2]/131);
+            int16_t* degree = getDegree(x,y,z, Delta);
+//            printf("[Gyro]  X = %-4d, Y =  %-4d, Z = %-4d\n", degree[0], degree[1],degree[2]);
 
             //Accel data
-//            int16_t* accel = getAccel();
-//            printf("\n[Accel] X = %-4d, Y = %-4d, Z = %-4d\n", accel[0]/2048, accel[1]/2048, accel[2]/2048);
-//            printf("----------------------------------------\n");
-            delayMs(5000);
-            //delayMs(11900);
+            int16_t* accel = getAccel();
+//            printf("\n[Accel] X = %-4d, Y = %-4d, Z = %-4d\n", accel[0]/16384, accel[1]/16384, accel[2]/16384);
+
+            int16_t* finalAngle = getFinalAngle(degree, accel);
+            printf("[Gyro]  X = %-4d, Y =  %-4d, Z = %-4d\n", finalAngle[0], finalAngle[1],finalAngle[2]);
+
+            printf("----------------------------------------\n");
+
+            delayMs(1000);
         }
     return (0);
 }

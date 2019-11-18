@@ -24,7 +24,7 @@ pwmservo.obj: C:/ti/ccs910/ccs/tools/compiler/ti-cgt-arm_18.12.2.LTS/include/std
 pwmservo.obj: C:/ti/simplelink_msp432p4_sdk_3_30_00_13/source/ti/drivers/I2C.h
 pwmservo.obj: C:/ti/ccs910/ccs/tools/compiler/ti-cgt-arm_18.12.2.LTS/include/stdbool.h
 pwmservo.obj: C:/ti/simplelink_msp432p4_sdk_3_30_00_13/source/ti/drivers/PWM.h
-pwmservo.obj: C:/Users/sjhDA/Desktop/pwmled2_MSP_EXP432P401R_tirtos_ccs/Debug/syscfg/ti_drivers_config.h
+pwmservo.obj: C:/Users/sjhDA/Desktop/servo_mpu6050_tirtos_ccs/Debug/syscfg/ti_drivers_config.h
 pwmservo.obj: C:/ti/simplelink_msp432p4_sdk_3_30_00_13/source/ti/devices/DeviceFamily.h
 
 ../pwmservo.c: 
@@ -51,5 +51,5 @@ C:/ti/ccs910/ccs/tools/compiler/ti-cgt-arm_18.12.2.LTS/include/stdarg.h:
 C:/ti/simplelink_msp432p4_sdk_3_30_00_13/source/ti/drivers/I2C.h: 
 C:/ti/ccs910/ccs/tools/compiler/ti-cgt-arm_18.12.2.LTS/include/stdbool.h: 
 C:/ti/simplelink_msp432p4_sdk_3_30_00_13/source/ti/drivers/PWM.h: 
-C:/Users/sjhDA/Desktop/pwmled2_MSP_EXP432P401R_tirtos_ccs/Debug/syscfg/ti_drivers_config.h: 
+C:/Users/sjhDA/Desktop/servo_mpu6050_tirtos_ccs/Debug/syscfg/ti_drivers_config.h: 
 C:/ti/simplelink_msp432p4_sdk_3_30_00_13/source/ti/devices/DeviceFamily.h: 

@@ -46,8 +46,6 @@ void closeI2C();
 
 
 
-
-
 /*
  * Function Prototype Declarations (MPU6050)
  *
@@ -62,6 +60,7 @@ uint8_t getRegisterValue(uint8_t regAddr);
 int16_t* get3Axis(uint8_t regAddr);
 int16_t* getGyro();
 int16_t* getAccel();
-int getDegree(void);
-void setDegree(int16_t* gyro);
+void SysTick_init(void);
+int16_t* getDegree(int x, int y, int z,int Delta);
+int16_t* getFinalAngle(int16_t* degree, int16_t* accel);
 #endif /* MSP432_MPU6050_H_ */

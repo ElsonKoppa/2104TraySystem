@@ -2,7 +2,7 @@
  * mps432_mpu6050.c
  *
  *  Created on: Oct 26, 2019
- *      Author: -
+ *      Author: Ted
  */
 #include "msp.h"
 #include <msp432_mpu6050.h>
@@ -134,6 +134,7 @@ void initialiseI2C(int i2cBitRate){
     I2C_Params_init(&i2cParams);
     i2cParams.bitRate = I2C_100kHz;
    }
+
 void closeI2C(){
     /* Deinitialise I2C */
     I2C_close(i2c);
@@ -152,6 +153,7 @@ void wakeMPU6050(){
 
     printf("MPU6050 Awake, WHOAMI = %x\n\n", getRegister(MPU6050_WHOAMI));
 }
+
 void startMPU6050()
 {
 
@@ -174,31 +176,29 @@ void startMPU6050()
     wakeMPU6050();
 
 }
-static int x_val = 0;
-int getDegree(){
-    return x_val;
-
+void SysTick_init(void){
+    SysTick->LOAD = 0xFFFFFF; //Load Max 24Bit value into Systick
+    SysTick->VAL = 0; //Clear Systick value
+    SysTick->CTRL = 5; // Enable Systick , Disable interrupt, Enable clk source
 }
-void setDegree(int16_t* gyro){
-     x_val = (gyro[0]/131)+4;
-//    return x_val;
 
-    //    if(x_val <= -15 && x_val>=-18)
-    //    {
-    //        return 0;
-    //    }
-    //    else if(x_val<=-36 && x_val>=-38)
-    //   {
-    //       return -10;
-    //   }
-    //    else if(x_val<=6 && x_val>=3)
-    //    {
-    //        return 10;
-    //    }
-    //    else
-    //    {
-    //        return -1;
-    //    }
+int16_t* getDegree(int x, int y, int z, int delta){
+//    int x_val = gyro[0]/131;
+//    return x_val;
+    int16_t degreeData[3] = 0;
+    degreeData[0] = degreeData[0] + x * delta;
+    degreeData[1] = degreeData[1] + y * delta;
+    degreeData[2] = degreeData[1] + z * delta;
+    return degreeData;
+}
+
+int16_t* getFinalAngle(int16_t* degree, int16_t* accel)
+{
+    int16_t finalData[3];
+    finalData[0] = 0.96 * degree[0] + 0.04 * accel[0];
+    finalData[1] = 0.96 * degree[1] + 0.04 * accel[1];
+    finalData[2] = degree[2];
+    return finalData;
 }
 /*
 static int16_t* gyroOffset;

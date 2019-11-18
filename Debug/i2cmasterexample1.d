@@ -18,14 +18,11 @@ i2cmasterexample1.obj: C:/ti/simplelink_msp432p4_sdk_3_30_00_13/source/ti/posix/
 i2cmasterexample1.obj: C:/ti/ccs910/ccs/tools/compiler/ti-cgt-arm_18.12.2.LTS/include/../include/time.h
 i2cmasterexample1.obj: C:/ti/ccs910/ccs/tools/compiler/ti-cgt-arm_18.12.2.LTS/include/abi_prefix.h
 i2cmasterexample1.obj: C:/ti/ccs910/ccs/tools/compiler/ti-cgt-arm_18.12.2.LTS/include/xlocale/_time.h
-i2cmasterexample1.obj: C:/ti/ccs910/ccs/tools/compiler/ti-cgt-arm_18.12.2.LTS/include/stdbool.h
-i2cmasterexample1.obj: C:/ti/ccs910/ccs/tools/compiler/ti-cgt-arm_18.12.2.LTS/include/math.h
-i2cmasterexample1.obj: C:/ti/ccs910/ccs/tools/compiler/ti-cgt-arm_18.12.2.LTS/include/_defs.h
-i2cmasterexample1.obj: C:/ti/ccs910/ccs/tools/compiler/ti-cgt-arm_18.12.2.LTS/include/machine/_limits.h
 i2cmasterexample1.obj: C:/ti/ccs910/ccs/tools/compiler/ti-cgt-arm_18.12.2.LTS/include/stdio.h
 i2cmasterexample1.obj: C:/ti/ccs910/ccs/tools/compiler/ti-cgt-arm_18.12.2.LTS/include/stdarg.h
 i2cmasterexample1.obj: ../msp432_mpu6050.h
 i2cmasterexample1.obj: C:/ti/simplelink_msp432p4_sdk_3_30_00_13/source/ti/drivers/I2C.h
+i2cmasterexample1.obj: C:/ti/ccs910/ccs/tools/compiler/ti-cgt-arm_18.12.2.LTS/include/stdbool.h
 i2cmasterexample1.obj: C:/ti/ccs910/ccs/ccs_base/arm/include/msp.h
 i2cmasterexample1.obj: C:/ti/ccs910/ccs/ccs_base/arm/include/msp432p401r.h
 i2cmasterexample1.obj: C:/ti/ccs910/ccs/ccs_base/arm/include/msp_compatibility.h
@@ -55,14 +52,11 @@ C:/ti/simplelink_msp432p4_sdk_3_30_00_13/source/ti/posix/ccs/sys/_internal.h:
 C:/ti/ccs910/ccs/tools/compiler/ti-cgt-arm_18.12.2.LTS/include/../include/time.h: 
 C:/ti/ccs910/ccs/tools/compiler/ti-cgt-arm_18.12.2.LTS/include/abi_prefix.h: 
 C:/ti/ccs910/ccs/tools/compiler/ti-cgt-arm_18.12.2.LTS/include/xlocale/_time.h: 
-C:/ti/ccs910/ccs/tools/compiler/ti-cgt-arm_18.12.2.LTS/include/stdbool.h: 
-C:/ti/ccs910/ccs/tools/compiler/ti-cgt-arm_18.12.2.LTS/include/math.h: 
-C:/ti/ccs910/ccs/tools/compiler/ti-cgt-arm_18.12.2.LTS/include/_defs.h: 
-C:/ti/ccs910/ccs/tools/compiler/ti-cgt-arm_18.12.2.LTS/include/machine/_limits.h: 
 C:/ti/ccs910/ccs/tools/compiler/ti-cgt-arm_18.12.2.LTS/include/stdio.h: 
 C:/ti/ccs910/ccs/tools/compiler/ti-cgt-arm_18.12.2.LTS/include/stdarg.h: 
 ../msp432_mpu6050.h: 
 C:/ti/simplelink_msp432p4_sdk_3_30_00_13/source/ti/drivers/I2C.h: 
+C:/ti/ccs910/ccs/tools/compiler/ti-cgt-arm_18.12.2.LTS/include/stdbool.h: 
 C:/ti/ccs910/ccs/ccs_base/arm/include/msp.h: 
 C:/ti/ccs910/ccs/ccs_base/arm/include/msp432p401r.h: 
 C:/ti/ccs910/ccs/ccs_base/arm/include/msp_compatibility.h: 
