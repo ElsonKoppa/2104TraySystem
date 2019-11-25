@@ -74,10 +74,7 @@ void *mainThread(void *arg0)
             int y = (gyro[1]/131)-4;
             int z = gyro[2]/131;
 //            printf("[Gyro]  X = %-4d, Y =  %-4d, Z = %-4d\n", (gyro[0]/131)+4, (gyro[1]/131)-4, gyro[2]/131);
-            setDegree(x,y,z, Delta);
-            int16_t* degree = getDegree();
-            printf('CORRECT ONE : %-4d\n', degree[0]);
-
+            int16_t* degree = getDegree(x,y,z, Delta);
 //            printf("[Gyro]  X = %-4d, Y =  %-4d, Z = %-4d\n", degree[0], degree[1],degree[2]);
 
             //Accel data

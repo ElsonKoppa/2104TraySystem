@@ -181,26 +181,22 @@ void SysTick_init(void){
     SysTick->VAL = 0; //Clear Systick value
     SysTick->CTRL = 5; // Enable Systick , Disable interrupt, Enable clk source
 }
-static int16_t degree[3];
-void setDegree(int x, int y, int z, int delta){
+
+int16_t* getDegree(int x, int y, int z, int delta){
 //    int x_val = gyro[0]/131;
 //    return x_val;
-//    int16_t degreeData[3];
-    degree[0] = degree[0] + x * delta;
-    degree[1] = degree[1] + y * delta;
-    degree[2] = degree[1] + z * delta;
-//    degree = degreeData;
+    int16_t degreeData[3] = 0;
+    degreeData[0] = degreeData[0] + x * delta;
+    degreeData[1] = degreeData[1] + y * delta;
+    degreeData[2] = degreeData[1] + z * delta;
+    return degreeData;
+}
 
-}
-int16_t* getDegree(void)
-{
-    return degree;
-}
 int16_t* getFinalAngle(int16_t* degree, int16_t* accel)
 {
     int16_t finalData[3];
-    finalData[0] = 0.96 * degree[0] + 0.04 * (accel[0]/16384);
-    finalData[1] = 0.96 * degree[1] + 0.04 * (accel[1]/16384);
+    finalData[0] = 0.96 * degree[0] + 0.04 * accel[0];
+    finalData[1] = 0.96 * degree[1] + 0.04 * accel[1];
     finalData[2] = degree[2];
     return finalData;
 }
