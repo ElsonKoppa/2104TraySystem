@@ -61,6 +61,8 @@ int16_t* get3Axis(uint8_t regAddr);
 int16_t* getGyro();
 int16_t* getAccel();
 void SysTick_init(void);
-int16_t* getDegree(int x, int y, int z,int Delta);
+void setDegree(int x, int y, int z,int Delta);
+int16_t* getDegree(void);
 int16_t* getFinalAngle(int16_t* degree, int16_t* accel);
+
 #endif /* MSP432_MPU6050_H_ */

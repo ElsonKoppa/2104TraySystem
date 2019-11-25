@@ -62,7 +62,7 @@ void *servoThread(void *arg0)
 
     /* Call driver init functions. */
     PWM_init();
-//  int degree = getDegree();////////////////////////////////////////////////////////////////////////////
+
     PWM_Params_init(&params);
     params.dutyUnits = PWM_DUTY_US;
     params.dutyValue = 0;
@@ -86,16 +86,24 @@ void *servoThread(void *arg0)
 
     /* Loop forever incrementing the PWM duty */
     while (1) {
+        duty = 500;
         PWM_setDuty(pwm1, duty);
+        usleep(time);
+        duty = 1500;
+        PWM_setDuty(pwm1, duty);
+        usleep(time);
+        //PWM_setDuty(pwm2, duty);
 
-        PWM_setDuty(pwm2, duty);
+//        duty = (duty + dutyInc);
+//
+//        if (duty == 3500 || duty == 1000 || (!duty)) {
+//            dutyInc = - dutyInc;
+//        }
+        //        int16_t* degree = getDegree();
 
-        duty = (duty + dutyInc);
-
-        if (duty == 3500 || duty == 1000 || (!duty)) {
-            dutyInc = - dutyInc;
-        }
-
+//        printf('%d\n',degree[0]);
+        duty = 2500;
+        PWM_setDuty(pwm1, duty);
         usleep(time);
     }
 }
