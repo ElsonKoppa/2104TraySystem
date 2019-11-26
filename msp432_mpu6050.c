@@ -6,6 +6,7 @@
  */
 #include "msp.h"
 #include <msp432_mpu6050.h>
+#include <servo.h>
 #include "ti_drivers_config.h"
 #include <ti/drivers/I2C.h>
 #include <stdio.h>
@@ -183,22 +184,40 @@ void SysTick_init(void){
 }
 
 int16_t* getDegree(int x, int y, int z, int delta){
-//    int x_val = gyro[0]/131;
-//    return x_val;
     int16_t degreeData[3] = 0;
-    degreeData[0] = degreeData[0] + x * delta;
-    degreeData[1] = degreeData[1] + y * delta;
-    degreeData[2] = degreeData[1] + z * delta;
+//    double periodTime = 0.00000002083;
+//    printf("PT: %.12f\n", (periodTime*delta));
+    degreeData[0] = degreeData[0] + (x * delta);
+    degreeData[1] = degreeData[1] + (y * delta);
+    degreeData[2] = degreeData[2] + (z * delta);
     return degreeData;
 }
 
 int16_t* getFinalAngle(int16_t* degree, int16_t* accel)
 {
     int16_t finalData[3];
-    finalData[0] = 0.96 * degree[0] + 0.04 * accel[0];
-    finalData[1] = 0.96 * degree[1] + 0.04 * accel[1];
+    finalData[0] = (0.96 * degree[0]) + 0.04 * (accel[0]/16384);
+    finalData[1] = (0.96 * degree[1]) + 0.04 * (accel[1]/16384);
     finalData[2] = degree[2];
     return finalData;
+}
+
+void checkRange(int y){
+    if(y>=-400 && y <=15000)
+    {
+        printf("turn LEFT");
+        turn_cw(10);
+//        turn();
+    }
+    else if(y<=-800 && y>=-15000)
+    {
+        printf("Turn Right");
+        turn_acw(10);
+//        turn();
+    }
+    else{
+        printf("NO turn");
+    }
 }
 /*
 static int16_t* gyroOffset;
@@ -208,7 +227,6 @@ void calibrateMPU6050(){
     *gyroOffset = getAccel();
     printf("\n\nGyro Offset in calibration XYZ = %d %d %d\n", gyroOffset[0], gyroOffset[1], gyroOffset[2]);
     printf("Calibration completed.\n");
-
     //return gyroOffset;
 }
 getGyroData(){
@@ -223,4 +241,3 @@ getGyroData(){
 */
 
 //=============================================================================================
-

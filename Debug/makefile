@@ -16,6 +16,7 @@ ORDERED_OBJS += \
 "./main_tirtos.obj" \
 "./msp432_mpu6050.obj" \
 "./pwmservo.obj" \
+"./servo.obj" \
 "./syscfg/ti_drivers_config.obj" \
 "../MSP_EXP432P401R_TIRTOS.cmd" \
 -l"ti/display/lib/display.aem4f" \
@@ -170,8 +171,8 @@ servo_mpu6050_tirtos_ccs.hex: $(EXE_OUTPUTS)
 # Other Targets
 clean:
 	-$(RM) $(GEN_MISC_FILES__QUOTED)$(BIN_OUTPUTS__QUOTED)$(GEN_FILES__QUOTED)$(EXE_OUTPUTS__QUOTED)
-	-$(RM) "i2cmasterexample1.obj" "main_tirtos.obj" "msp432_mpu6050.obj" "pwmservo.obj" "syscfg\ti_drivers_config.obj" 
-	-$(RM) "i2cmasterexample1.d" "main_tirtos.d" "msp432_mpu6050.d" "pwmservo.d" "syscfg\ti_drivers_config.d" 
+	-$(RM) "i2cmasterexample1.obj" "main_tirtos.obj" "msp432_mpu6050.obj" "pwmservo.obj" "servo.obj" "syscfg\ti_drivers_config.obj" 
+	-$(RM) "i2cmasterexample1.d" "main_tirtos.d" "msp432_mpu6050.d" "pwmservo.d" "servo.d" "syscfg\ti_drivers_config.d" 
 	-$(RMDIR) $(GEN_MISC_DIRS__QUOTED)
 	-@echo 'Finished clean'
 	-@echo ' '

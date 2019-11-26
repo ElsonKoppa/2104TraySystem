@@ -69,13 +69,13 @@ void *servoThread(void *arg0)
     params.periodUnits = PWM_PERIOD_US;
     params.periodValue = pwmPeriod;
     pwm1 = PWM_open(CONFIG_PWM_0, &params);
-    if (pwm1 == NULL) {
-        /* CONFIG_PWM_0 did not open */
-        while (1);
-    }
+//    if (pwm1 == NULL) {
+//        /* CONFIG_PWM_0 did not open */
+//        while (1);
+//    }
 
-    PWM_start(pwm1);
-
+//    PWM_start(pwm1);
+//
     pwm2 = PWM_open(CONFIG_PWM_1, &params);
     if (pwm2 == NULL) {
         /* CONFIG_PWM_0 did not open */
@@ -84,18 +84,21 @@ void *servoThread(void *arg0)
 
     PWM_start(pwm2);
 
-    /* Loop forever incrementing the PWM duty */
-    while (1) {
-        PWM_setDuty(pwm1, duty);
-
-        PWM_setDuty(pwm2, duty);
-
-        duty = (duty + dutyInc);
-
-        if (duty == 3500 || duty == 1000 || (!duty)) {
-            dutyInc = - dutyInc;
-        }
-
-        usleep(time);
-    }
+//    /* Loop forever incrementing the PWM duty */
+////    while (1) {
+////        PWM_setDuty(pwm1, duty);
+////
+////        PWM_setDuty(pwm2, duty);
+////
+////        duty = (duty + dutyInc);
+////
+////        if (duty == 3500 || duty == 1000 || (!duty)) {
+////            dutyInc = - dutyInc;
+////        }
+////
+////        usleep(time);
+////    }
 }
+
+
+

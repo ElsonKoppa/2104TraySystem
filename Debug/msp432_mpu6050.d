@@ -27,6 +27,14 @@ msp432_mpu6050.obj: C:/ti/ccs910/ccs/tools/compiler/ti-cgt-arm_18.12.2.LTS/inclu
 msp432_mpu6050.obj: C:/ti/simplelink_msp432p4_sdk_3_30_00_13/source/ti/drivers/I2C.h
 msp432_mpu6050.obj: C:/ti/ccs910/ccs/tools/compiler/ti-cgt-arm_18.12.2.LTS/include/stdbool.h
 msp432_mpu6050.obj: C:/ti/ccs910/ccs/tools/compiler/ti-cgt-arm_18.12.2.LTS/include/stddef.h
+msp432_mpu6050.obj: C:/Users/sjhDA/Desktop/servo_mpu6050_tirtos_ccs/servo.h
+msp432_mpu6050.obj: C:/ti/simplelink_msp432p4_sdk_3_30_00_13/source/ti/posix/ccs/unistd.h
+msp432_mpu6050.obj: C:/ti/simplelink_msp432p4_sdk_3_30_00_13/source/ti/posix/ccs/sys/types.h
+msp432_mpu6050.obj: C:/ti/simplelink_msp432p4_sdk_3_30_00_13/source/ti/posix/ccs/sys/_internal.h
+msp432_mpu6050.obj: C:/ti/ccs910/ccs/tools/compiler/ti-cgt-arm_18.12.2.LTS/include/../include/time.h
+msp432_mpu6050.obj: C:/ti/ccs910/ccs/tools/compiler/ti-cgt-arm_18.12.2.LTS/include/abi_prefix.h
+msp432_mpu6050.obj: C:/ti/ccs910/ccs/tools/compiler/ti-cgt-arm_18.12.2.LTS/include/xlocale/_time.h
+msp432_mpu6050.obj: C:/ti/simplelink_msp432p4_sdk_3_30_00_13/source/ti/drivers/PWM.h
 msp432_mpu6050.obj: C:/Users/sjhDA/Desktop/servo_mpu6050_tirtos_ccs/Debug/syscfg/ti_drivers_config.h
 msp432_mpu6050.obj: C:/ti/simplelink_msp432p4_sdk_3_30_00_13/source/ti/devices/DeviceFamily.h
 
@@ -57,5 +65,13 @@ C:/ti/ccs910/ccs/tools/compiler/ti-cgt-arm_18.12.2.LTS/include/stdarg.h:
 C:/ti/simplelink_msp432p4_sdk_3_30_00_13/source/ti/drivers/I2C.h: 
 C:/ti/ccs910/ccs/tools/compiler/ti-cgt-arm_18.12.2.LTS/include/stdbool.h: 
 C:/ti/ccs910/ccs/tools/compiler/ti-cgt-arm_18.12.2.LTS/include/stddef.h: 
+C:/Users/sjhDA/Desktop/servo_mpu6050_tirtos_ccs/servo.h: 
+C:/ti/simplelink_msp432p4_sdk_3_30_00_13/source/ti/posix/ccs/unistd.h: 
+C:/ti/simplelink_msp432p4_sdk_3_30_00_13/source/ti/posix/ccs/sys/types.h: 
+C:/ti/simplelink_msp432p4_sdk_3_30_00_13/source/ti/posix/ccs/sys/_internal.h: 
+C:/ti/ccs910/ccs/tools/compiler/ti-cgt-arm_18.12.2.LTS/include/../include/time.h: 
+C:/ti/ccs910/ccs/tools/compiler/ti-cgt-arm_18.12.2.LTS/include/abi_prefix.h: 
+C:/ti/ccs910/ccs/tools/compiler/ti-cgt-arm_18.12.2.LTS/include/xlocale/_time.h: 
+C:/ti/simplelink_msp432p4_sdk_3_30_00_13/source/ti/drivers/PWM.h: 
 C:/Users/sjhDA/Desktop/servo_mpu6050_tirtos_ccs/Debug/syscfg/ti_drivers_config.h: 
 C:/ti/simplelink_msp432p4_sdk_3_30_00_13/source/ti/devices/DeviceFamily.h: 

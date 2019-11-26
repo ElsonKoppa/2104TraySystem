@@ -16,6 +16,7 @@ C_SRCS += \
 ../main_tirtos.c \
 ../msp432_mpu6050.c \
 ../pwmservo.c \
+../servo.c \
 ./syscfg/ti_drivers_config.c 
 
 GEN_FILES += \
@@ -29,6 +30,7 @@ C_DEPS += \
 ./main_tirtos.d \
 ./msp432_mpu6050.d \
 ./pwmservo.d \
+./servo.d \
 ./syscfg/ti_drivers_config.d 
 
 OBJS += \
@@ -36,6 +38,7 @@ OBJS += \
 ./main_tirtos.obj \
 ./msp432_mpu6050.obj \
 ./pwmservo.obj \
+./servo.obj \
 ./syscfg/ti_drivers_config.obj 
 
 GEN_MISC_FILES += \
@@ -50,6 +53,7 @@ OBJS__QUOTED += \
 "main_tirtos.obj" \
 "msp432_mpu6050.obj" \
 "pwmservo.obj" \
+"servo.obj" \
 "syscfg\ti_drivers_config.obj" 
 
 GEN_MISC_FILES__QUOTED += \
@@ -61,6 +65,7 @@ C_DEPS__QUOTED += \
 "main_tirtos.d" \
 "msp432_mpu6050.d" \
 "pwmservo.d" \
+"servo.d" \
 "syscfg\ti_drivers_config.d" 
 
 GEN_FILES__QUOTED += \
@@ -71,6 +76,7 @@ C_SRCS__QUOTED += \
 "../main_tirtos.c" \
 "../msp432_mpu6050.c" \
 "../pwmservo.c" \
+"../servo.c" \
 "./syscfg/ti_drivers_config.c" 
 
 SYSCFG_SRCS__QUOTED += \
