@@ -63,4 +63,5 @@ int16_t* getAccel();
 void SysTick_init(void);
 int16_t* getDegree(int x, int y, int z,int Delta);
 int16_t* getFinalAngle(int16_t* degree, int16_t* accel);
+void checkRange(int y);
 #endif /* MSP432_MPU6050_H_ */

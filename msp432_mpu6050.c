@@ -200,6 +200,20 @@ int16_t* getFinalAngle(int16_t* degree, int16_t* accel)
     finalData[2] = degree[2];
     return finalData;
 }
+
+void checkRange(int y){
+    if(y>=-400 && y <=15000)
+    {
+        printf("turn LEFT");
+    }
+    else if(y<=-800 && y>=-15000)
+    {
+        printf("Turn Right");
+    }
+    else{
+        printf("NO turn");
+    }
+}
 /*
 static int16_t* gyroOffset;
 void calibrateMPU6050(){

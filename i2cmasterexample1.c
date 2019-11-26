@@ -68,24 +68,24 @@ void *mainThread(void *arg0)
             P1OUT ^= BIT0;
             //getGyroData();
             // Gyro Data
-            int Start = SysTick->VAL;
+//            int Start = SysTick->VAL;
             int16_t* gyro = getGyro();
-            int End = SysTick->VAL;
-            int Delta = 0xFFFFFF & (Start - End);
-            int deltaComb = (periodTime * Delta)*1000;
-            int x = (gyro[0]/131)+4;
-            int y = (gyro[1]/131)-4;
-            int z = gyro[2]/131;
+//            int End = SysTick->VAL;
+//            int Delta = 0xFFFFFF & (Start - End);
+//            int deltaComb = (periodTime * Delta)*1000;
+//            int x = (gyro[0]/131)+4;
+//            int y = (gyro[1]/131)-4;
+//            int z = gyro[2]/131;
 //            printf("%.13f", Delta);
 //            printf("[Gyro]  X = %-4d, Y =  %-4d, Z = %-4d\n", (gyro[0]/131)+4, (gyro[1]/131)-4, gyro[2]/131);
-            int16_t* degree = getDegree(x,y,z,deltaComb);
-            printf("[degree]  X = %-4d, Y =  %-4d, Z = %-4d\n", degree[0], degree[1],degree[2]);
+//            int16_t* degree = getDegree(x,y,z,deltaComb);
+//            printf("[degree]  X = %-4d, Y =  %-4d, Z = %-4d\n", degree[0], degree[1],degree[2]);
 
             //Accel data
             int16_t* accel = getAccel();
 //            printf("\n[Accel] X = %-4d, Y = %-4d, Z = %-4d\n", accel[0], accel[1], accel[2]);
-
-            int16_t* finalAngle = getFinalAngle(degree, accel);
+            checkRange(accel[1]);
+//            int16_t* finalAngle = getFinalAngle(degree, accel);
 //            printf("\n[final] X = %-4d, Y = %-4d, Z = %-4d\n", finalAngle[0], finalAngle[1], finalAngle[2]);
             printf("----------------------------------------\n");
 
