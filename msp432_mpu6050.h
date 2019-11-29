@@ -1,9 +1,3 @@
-/*
- * msp432_mpu6050.h
- *
- *  Created on: Oct 26, 2019
- *      Author: Ted
- */
 
 #ifndef MSP432_MPU6050_H_
 #define MSP432_MPU6050_H_
