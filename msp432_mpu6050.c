@@ -1,9 +1,3 @@
-/*
- * mps432_mpu6050.c
- *
- *  Created on: Oct 26, 2019
- *      Author: Ted
- */
 #include "msp.h"
 #include <msp432_mpu6050.h>
 #include <servo.h>
