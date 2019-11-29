@@ -50,6 +50,51 @@ const uint_least8_t Display_count = 1;
 
 
 /*
+ *  =============================== GPIO ===============================
+ */
+
+#include <ti/drivers/GPIO.h>
+#include <ti/drivers/gpio/GPIOMSP432.h>
+
+/*
+ *  ======== gpioPinConfigs ========
+ *  Array of Pin configurations
+ */
+GPIO_PinConfig gpioPinConfigs[] = {
+    /* CONFIG_GPIO_1 : LaunchPad Button S1 (Left) */
+    GPIOMSP432_P1_1 | GPIO_CFG_IN_PU | GPIO_CFG_IN_INT_FALLING,
+    /* CONFIG_GPIO_0 : LaunchPad LED 2 Red */
+    GPIOMSP432_P2_0 | GPIO_CFG_OUT_STD | GPIO_CFG_OUT_STR_MED | GPIO_CFG_OUT_LOW,
+};
+
+/*
+ *  ======== gpioCallbackFunctions ========
+ *  Array of callback function pointers
+ *
+ *  NOTE: Unused callback entries can be omitted from the callbacks array to
+ *  reduce memory usage by enabling callback table optimization
+ *  (GPIO.optimizeCallbackTableSize = true)
+ */
+GPIO_CallbackFxn gpioCallbackFunctions[] = {
+    /* CONFIG_GPIO_1 : LaunchPad Button S1 (Left) */
+    NULL,
+    /* CONFIG_GPIO_0 : LaunchPad LED 2 Red */
+    NULL,
+};
+
+/*
+ *  ======== GPIOMSP432_config ========
+ */
+const GPIOMSP432_Config GPIOMSP432_config = {
+    .pinConfigs = (GPIO_PinConfig *)gpioPinConfigs,
+    .callbacks = (GPIO_CallbackFxn *)gpioCallbackFunctions,
+    .numberOfPinConfigs = 2,
+    .numberOfCallbacks = 2,
+    .intPriority = (~0)
+};
+
+
+/*
  *  =============================== I2C ===============================
  */
 

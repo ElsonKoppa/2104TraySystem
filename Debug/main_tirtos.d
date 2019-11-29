@@ -81,6 +81,16 @@ main_tirtos.obj: C:/ti/ccs910/xdctools_3_55_02_22_core/packages/xdc/runtime/IIns
 main_tirtos.obj: C:/ti/ccs910/xdctools_3_55_02_22_core/packages/xdc/runtime/IGateProvider.h
 main_tirtos.obj: C:/ti/simplelink_msp432p4_sdk_3_30_00_13/kernel/tirtos/packages/ti/sysbios/BIOS__epilogue.h
 main_tirtos.obj: C:/ti/simplelink_msp432p4_sdk_3_30_00_13/kernel/tirtos/packages/ti/sysbios/package/BIOS_RtsGateProxy.h
+main_tirtos.obj: C:/ti/ccs910/ccs/ccs_base/arm/include/msp.h
+main_tirtos.obj: C:/ti/ccs910/ccs/ccs_base/arm/include/msp432p401r.h
+main_tirtos.obj: C:/ti/ccs910/ccs/ccs_base/arm/include/msp_compatibility.h
+main_tirtos.obj: C:/ti/ccs910/ccs/ccs_base/arm/include/msp432p401r_classic.h
+main_tirtos.obj: C:/ti/simplelink_msp432p4_sdk_3_30_00_13/source/third_party/CMSIS/Include/core_cm4.h
+main_tirtos.obj: C:/ti/simplelink_msp432p4_sdk_3_30_00_13/source/third_party/CMSIS/Include/cmsis_version.h
+main_tirtos.obj: C:/ti/simplelink_msp432p4_sdk_3_30_00_13/source/third_party/CMSIS/Include/cmsis_compiler.h
+main_tirtos.obj: C:/ti/simplelink_msp432p4_sdk_3_30_00_13/source/third_party/CMSIS/Include/cmsis_ccs.h
+main_tirtos.obj: C:/ti/simplelink_msp432p4_sdk_3_30_00_13/source/third_party/CMSIS/Include/mpu_armv7.h
+main_tirtos.obj: C:/ti/ccs910/ccs/ccs_base/arm/include/system_msp432p401r.h
 main_tirtos.obj: C:/ti/simplelink_msp432p4_sdk_3_30_00_13/source/ti/drivers/Board.h
 
 ../main_tirtos.c: 
@@ -164,4 +174,14 @@ C:/ti/ccs910/xdctools_3_55_02_22_core/packages/xdc/runtime/IInstance.h:
 C:/ti/ccs910/xdctools_3_55_02_22_core/packages/xdc/runtime/IGateProvider.h: 
 C:/ti/simplelink_msp432p4_sdk_3_30_00_13/kernel/tirtos/packages/ti/sysbios/BIOS__epilogue.h: 
 C:/ti/simplelink_msp432p4_sdk_3_30_00_13/kernel/tirtos/packages/ti/sysbios/package/BIOS_RtsGateProxy.h: 
+C:/ti/ccs910/ccs/ccs_base/arm/include/msp.h: 
+C:/ti/ccs910/ccs/ccs_base/arm/include/msp432p401r.h: 
+C:/ti/ccs910/ccs/ccs_base/arm/include/msp_compatibility.h: 
+C:/ti/ccs910/ccs/ccs_base/arm/include/msp432p401r_classic.h: 
+C:/ti/simplelink_msp432p4_sdk_3_30_00_13/source/third_party/CMSIS/Include/core_cm4.h: 
+C:/ti/simplelink_msp432p4_sdk_3_30_00_13/source/third_party/CMSIS/Include/cmsis_version.h: 
+C:/ti/simplelink_msp432p4_sdk_3_30_00_13/source/third_party/CMSIS/Include/cmsis_compiler.h: 
+C:/ti/simplelink_msp432p4_sdk_3_30_00_13/source/third_party/CMSIS/Include/cmsis_ccs.h: 
+C:/ti/simplelink_msp432p4_sdk_3_30_00_13/source/third_party/CMSIS/Include/mpu_armv7.h: 
+C:/ti/ccs910/ccs/ccs_base/arm/include/system_msp432p401r.h: 
 C:/ti/simplelink_msp432p4_sdk_3_30_00_13/source/ti/drivers/Board.h: 

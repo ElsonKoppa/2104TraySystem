@@ -34,6 +34,7 @@
 /*
  *  ======== main_tirtos.c ========
  */
+
 #include <stdint.h>
 
 /* POSIX Header files */
@@ -41,11 +42,11 @@
 
 /* RTOS header files */
 #include <ti/sysbios/BIOS.h>
-
+#include "msp.h"
 /* Driver configuration */
 #include <ti/drivers/Board.h>
 
-extern void *servoThread(void *arg0);
+//extern void *servoThread(void *arg0);
 extern void *mainThread(void *arg0);
 
 /* Stack size in bytes */
@@ -61,23 +62,11 @@ int main(void)
     struct sched_param  priParam;
     int                 retc;
 
-//    pthread_t           thread2;
-//    pthread_attr_t      attrs2;
-//    struct sched_param  priParam2;
-//    int                 retc2;
 
     /* Call driver init functions */
     Board_init();
     /* Initialize the attributes structure with default values */
-//    pthread_attr_init(&attrs2);
     pthread_attr_init(&attrs);
-
-
-//    /* Set priority, detach state, and stack size attributes */
-//    priParam2.sched_priority = 2;
-//    retc2 = pthread_attr_setschedparam(&attrs2, &priParam2);
-//    retc2 |= pthread_attr_setdetachstate(&attrs2, PTHREAD_CREATE_DETACHED);
-//    retc2 |= pthread_attr_setstacksize(&attrs2, THREADSTACKSIZE);
 
     priParam.sched_priority = 1;
     retc = pthread_attr_setschedparam(&attrs, &priParam);
@@ -87,25 +76,13 @@ int main(void)
         /* failed to set attributes */
         while (1) {}
     }
-//
+
     retc = pthread_create(&thread, &attrs, mainThread, NULL);
     if (retc != 0) {
         /* pthread_create() failed */
         while (1) {}
     }
 
-
-
-//    if (retc2 != 0) {
-//        /* failed to set attributes */
-//        while (1) {}
-//    }
-//
-//    retc2 = pthread_create(&thread2, &attrs2, servoThread, NULL);
-//    if (retc2 != 0) {
-//        /* pthread_create() failed */
-//        while (1) {}
-//    }
 
     BIOS_start();
 

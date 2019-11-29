@@ -9,22 +9,22 @@
 /* Driver configuration */
 #include "ti_drivers_config.h"
 
-///* Period and duty in microseconds */
-//uint16_t   pwmPeriod = 5000;
-//uint16_t   duty = 1000;
-//uint16_t   dutyInc = 500;
-//
-///* Sleep time in microseconds */
-//uint32_t   time = 500000;
+
+//This 5 commented one are for the ID part of PID.
+//unsigned long lastTime;
+//double errSum, lastErr;
+//double ki, kd;
+//double lastInput;
+double kp;
+double Output, setPoint; //setPoint is the base gyroscope reading at rest for the tray.
+int finalPWM; //The final PWM to give to the servo to make the necerssary changes.
 
 
-unsigned long lastTime;
-double Input, Output, setPoint; //
-double errSum, lastErr;
-double kp, ki, kd;
-int finalPWM;
-double lastInput;
 
+/*
+ * Function Prototype Declarations (MPU6050)
+ *
+ */
 
 void startServo();
 void turn_cw(int degree);

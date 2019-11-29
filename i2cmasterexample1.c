@@ -49,9 +49,12 @@
 void *mainThread(void *arg0)
 {
     printf("\n== Start of thread ==\n\n");
-    P1DIR |= BIT0;
+
+    P1DIR |= BIT0;  //LED
     P1OUT &= ~BIT0;
-    P6REN |= 0x30;
+
+
+    P6REN |= 0x30; //PORT 6 for the SCL and SDA
     P6OUT |= 0x30;
 
 
@@ -60,29 +63,27 @@ void *mainThread(void *arg0)
     startMPU6050();
     startServo();
 //    SysTick_init();
-    //delayMs(5000);
-//    calibrateMPU6050();
     printf("==================================\n");
     printf("Reading MPU6050 Data...\n\n ");
+
         while(1)
         {
 
-            P1OUT ^= BIT0;
+            P1OUT ^= BIT0; //Toggle LED
 
             int16_t* gyro = getGyro();
 
 //            //Accel data
             int16_t* accel = getAccel();
-//            checkRange(accel[1]);
+
             if(accel[1] == 0){
+
                 printf("FAILED");
             } else {
                 compute(accel[1]);
             }
-//
             printf("----------------------------------------\n");
-//
-//            delayMs(0);
         }
     return (0);
 }
+

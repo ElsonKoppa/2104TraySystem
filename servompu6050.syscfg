@@ -13,6 +13,7 @@ var Display = scripting.addModule("/ti/display/Display");
 var Display1 = Display.addInstance();
 var GPIO = scripting.addModule("/ti/drivers/GPIO");
 var GPIO1 = GPIO.addInstance();
+var GPIO2 = GPIO.addInstance();
 // Name
 RTOS.timer0.resource.$name = "MyTIMER_A1";
 // Name - The C/C++ identifier used in applications as the index parameter passed to PWM runtime APIs
@@ -56,6 +57,10 @@ GPIO1.$name = "CONFIG_GPIO_1";
 GPIO1.$hardware = system.deviceData.board.components.S1;
 // Assign pin
 GPIO1.gpioPin.$assign = "P1.1.GPIO/EUSCI_A0_SPI.CLK"; // pin number - 5
+// Name - The C/C++ identifier used in applications as the index parameter passed to GPIO runtime APIs
+GPIO2.$name = "CONFIG_GPIO_0";
+// Use Hardware - Select the hardware to use, or 'none' to use available header pins
+GPIO2.$hardware = system.deviceData.board.components.LED2_RED;
 // Suggest solution
 RTOS.timer0.resource.$suggestSolution = "Timer_A0";
 // Suggest solution
@@ -76,3 +81,5 @@ Display1.uart.uart.$suggestSolution = "EUSCI_A0";
 Display1.uart.uart.txPin.$suggestSolution = "7";
 // Suggest solution
 Display1.uart.uart.rxPin.$suggestSolution = "6";
+// Suggest solution
+GPIO2.gpioPin.$suggestSolution = "16";

@@ -10,9 +10,10 @@
 #include "ti_drivers_config.h"
 PWM_Handle pwm2 = NULL;
 PWM_Params params;
+int delayTime =10;
 
 
-
+/* Initialization of Servo */
 void startServo(){
 
     /* Period and duty in microseconds */
@@ -22,13 +23,10 @@ void startServo(){
 
         /* Sleep time in microseconds */
         uint32_t   time = 500000;
-//        PWM_Handle pwm1 = NULL;
-//        PWM_Handle pwm2 = NULL;
-//        PWM_Params params;
+
 
         /* Call driver init functions. */
         PWM_init();
-    //  int degree = getDegree();////////////////////////////////////////////////////////////////////////////
         PWM_Params_init(&params);
         params.dutyUnits = PWM_DUTY_US;
         params.dutyValue = 0;
@@ -44,7 +42,7 @@ void startServo(){
 
         PWM_start(pwm2);
 
-        //PID INIT
+        //PID INITIALISE
         SetTunings(0.8);
         setPoint = -500;
 
@@ -56,93 +54,72 @@ void startServo(){
 //Error is the extra power to give to the turn_cw turn_ccw power
 void compute(int in)
 {
-
-   double error;
-//   double in = (double)input/10;
-   if(setPoint > in){
+    //This is part of P(ID) implementation that we tried that did not get it to work
+//    unsigned long now = millis();
+//    double timeChange = (double)(now - lastTime);
+    double error; //Error will be the difference in base gyroscope reading VS current gyroscope reading
+    if(setPoint > in){
        error = setPoint - in;
-   } else {
+    } else {
        error = in - setPoint;
-   }
+    }
+
+    //This is part of P(ID) implementation that we tried that did not get it to work
+    //errSum += (error * timeChange);
+    //double dErr = (error - lastErr) / timeChange;
 
    /*Compute PID Output*/
+    //This will be the entire working PID if we manage to implement the I and D.
+    //Output = kp * error + ki * errSum + kd * dErr;
 
-   //Here i have to keep calling the check range
+
+    //Output is the amount extra amount of power that i require the PWM to output or downput, in form of gyroscope readings.
+    //16000 and -17000 are the extreme ranges for gyroscope.
+    //-500 is the middle point which we will take as the base resting horizontol position for the tray.
+    //We take -500 +-150 as the threshold for the turn_cw or turn_acw will run.
    Output = kp * error;
    if(in>=-350 && in <=16000){
        printf("Turn Right\n");
        turn_cw(error);
-//        turn();
    }
    else if(in<=-650 && in>=-17000){
        printf("Turn Right\n");
        turn_acw(error);
-//        turn();
    }
    else{
-       printf("NO turn");
-       delayMs(1000);
+       delayMs(delayTime); //This is the nomove threshold.
    }
 
 }
 
+//This is the function to call to tune the PID.
 void SetTunings(double Kp)
 {
    kp = Kp;
+
+   //This are the I and D variables that will be used if we can get the Integral and Derivative part to run.
 //   ki = Ki;
 //   kd = Kd;
 }
 
-
-void turn_cw(int degree){
-    printf("turn clockwise by this amount %d\n",degree);
-    int basePWM = 1000;
-    finalPWM =basePWM - floor((double)degree/16500 * 500);
+/**This functions control the amount of PWM to produce to the Servo for the deviation of original value**/
+void turn_cw(int gyroReading){
+    printf("turn clockwise by this amount %d\n",gyroReading);
+    int basePWM = 1000; //1000 is the base PWM at hosrizontal position.
+    finalPWM =basePWM - floor((double)gyroReading/16500 * 500); //This is the final PWM to be sent to the servo. 500 is the amount of PWM needed to turn the servo from a rest position to 90 degrees.
     printf("This is final pwm to be given to motor: %d\n",finalPWM);
     PWM_setDuty(pwm2, finalPWM);
-
-    delayMs(1000);
+    delayMs(delayTime);
 }
 
-void turn_acw(int degree){
-    printf("turn anti clockwise by this amount %d\n",degree);
-//    int basePWM = finalPWM;
-//    int finalPwm = 0;
-    int basePWM = 1000;
-    //make value go lower
-    finalPWM =basePWM + floor((double)degree/16500 * 500);
+/**This functions control the amount of PWM to produce to the Servo for the deviation of original value**/
+void turn_acw(int gyroReading){
+    printf("turn anti clockwise by this amount %d\n",gyroReading);
+    int basePWM = 1000; //1000 is the base PWM at hosrizontal position.
+    finalPWM =basePWM + floor((double)gyroReading/16500 * 500); //This is the final PWM to be sent to the servo. 500 is the amount of PWM needed to turn the servo from a rest position to 90 degrees.
     printf("This is final pwm to be given to motor: %d\n",finalPWM);
-
     PWM_setDuty(pwm2, finalPWM);
-
-    delayMs(1000);
+    delayMs(delayTime);
 
 }
-
-
-
-//void turn(){
-//    printf("turn anti clockwise");
-//    int finalPwm = 0;
-//    int base_pwm = 1800;
-//    //make value go lower
-////    finalPwm =base_pwm - floor(degree/90 * 50);
-//
-//    PWM_setDuty(pwm2, base_pwm);
-//    delayMs(5000);
-////    int i = 0;
-////    int duty = 1000;
-////    int dutyInc = 500;
-////    for(i=0; i<11; i++) {
-////            PWM_setDuty(pwm2, duty);
-////            duty = (duty + dutyInc);
-////
-////            if (duty == 3500 || duty == 1000 || (!duty)) {
-////                dutyInc = - dutyInc;
-////            }
-////            delayMs(5000);
-////        }
-//}
-
-
 

@@ -27,6 +27,23 @@ extern "C" {
 
 
 /*
+ *  ======== GPIO ========
+ */
+
+/* P1.1, LaunchPad Button S1 (Left) */
+#define CONFIG_GPIO_1               0
+/* P2.0, LaunchPad LED 2 Red */
+#define CONFIG_GPIO_0               1
+
+/* LEDs are active high */
+#define CONFIG_GPIO_LED_ON  (1)
+#define CONFIG_GPIO_LED_OFF (0)
+
+#define CONFIG_LED_ON  (CONFIG_GPIO_LED_ON)
+#define CONFIG_LED_OFF (CONFIG_GPIO_LED_OFF)
+
+
+/*
  *  ======== I2C ========
  */
 

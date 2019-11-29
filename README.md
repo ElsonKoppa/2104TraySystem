@@ -1,64 +1,23 @@
-## Example Summary
+# Auto-Stabilizer (Tray system)
 
-Sample application to control on-board LEDs with the PWM driver.
+## Pre-Requisite
+Ensure CCS and compiler versions are the most up to date
+Updated version of SIMPLELINK MSP432 SDK must be installed.
 
-## Peripherals & Pin Assignments
+## If you have not installed MSP432 SDK
+1) Download and install SIMPLELINK MSP432 SDK from resource explorer.
+2) Click "yes" when they prompt to install SIMPLELINK SDK Academy.
 
-SysConfig generates the driver configurations into the __ti_drivers_config.c__
-and __ti_drivers_config.h__ files. Information on pins and resources used
-is present in both generated files. The SysConfig user interface can also be
-utilized to determine pins and resources used.
+## Steps to set up and build project:
+1)Download our submission zip file and unzip the contents into a folder X.
+2)Launch CCS (Only version 9.0 and above)
+3) Click File>Switch Workspace>Other and create a new workspace.
+4) Once in the new workspace, click file>import>Code composer studio, CCS Project
+5) At "Select search-directory", click browse and choose the first file that you unzipped into folder X. Tick the discovered project and then click "Finish".
+6) Repeat Step 4 and this time import the other file contained in folder X.
+7) Build the project "servo_mpu6050_tirtos_ccs"
+8) Flash it into MSP432 with the current set up of MPU6050 and the servo motor.
+9) Wait for up to 10 seconds for the MPU and the Servo motor to be set up, and when the tray starts moving, means the project have been successfully set up.
 
 
-* `CONFIG_PWM_0` - PWM instance used to control brightness of LED
-* `CONFIG_PWM_1` - PWM instance used to control brightness of LED
 
-## BoosterPacks, Board Resources & Jumper Settings
-
-For board specific jumper settings, resources and BoosterPack modifications,
-refer to the __Board.html__ file.
-
-> If you're using an IDE such as Code Composer Studio (CCS) or IAR, please
-refer to Board.html in your project directory for resources used and
-board-specific jumper settings.
-
-The Board.html can also be found in your SDK installation:
-
-        <SDK_INSTALL_DIR>/source/ti/boards/<BOARD>
-
-## Example Usage
-
-* Run the example.
-
-* The onboard LEDs will slowly vary in intensity.
-
-* Both LEDs connected to `CONFIG_PWM_0` and `CONFIG_PWM_1` will fade-in and
-  fade-out when running the application.
-
-## Application Design Details
-
-This application uses one thread, `mainThread` , which performs the following
-actions:
-
-1. Opens and initializes PWM driver objects.
-
-2. Uses the PWM driver to change the intensity of the LEDs.
-
-3. The thread sleeps for 50 milliseconds before changing LED intensity again.
-
-TI-RTOS:
-
-* When building in Code Composer Studio, the kernel configuration project will
-be imported along with the example. The kernel configuration project is
-referenced by the example, so it will be built first. The "release" kernel
-configuration is the default project used. It has many debug features disabled.
-These feature include assert checking, logging and runtime stack checks. For a
-detailed difference between the "release" and "debug" kernel configurations and
-how to switch between them, please refer to the SimpleLink MCU SDK User's
-Guide. The "release" and "debug" kernel configuration projects can be found
-under &lt;SDK_INSTALL_DIR&gt;/kernel/tirtos/builds/&lt;BOARD&gt;/(release|debug)/(ccs|gcc).
-
-FreeRTOS:
-
-* Please view the `FreeRTOSConfig.h` header file for example configuration
-information.

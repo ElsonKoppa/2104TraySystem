@@ -21,6 +21,8 @@ syscfg/ti_drivers_config.obj: C:/ti/ccs910/ccs/tools/compiler/ti-cgt-arm_18.12.2
 syscfg/ti_drivers_config.obj: C:/ti/simplelink_msp432p4_sdk_3_30_00_13/source/ti/display/DisplayUart.h
 syscfg/ti_drivers_config.obj: C:/ti/simplelink_msp432p4_sdk_3_30_00_13/source/ti/drivers/dpl/SemaphoreP.h
 syscfg/ti_drivers_config.obj: C:/ti/simplelink_msp432p4_sdk_3_30_00_13/source/ti/drivers/UART.h
+syscfg/ti_drivers_config.obj: C:/ti/simplelink_msp432p4_sdk_3_30_00_13/source/ti/drivers/GPIO.h
+syscfg/ti_drivers_config.obj: C:/ti/simplelink_msp432p4_sdk_3_30_00_13/source/ti/drivers/gpio/GPIOMSP432.h
 syscfg/ti_drivers_config.obj: C:/ti/simplelink_msp432p4_sdk_3_30_00_13/source/ti/drivers/i2c/I2CMSP432.h
 syscfg/ti_drivers_config.obj: C:/ti/simplelink_msp432p4_sdk_3_30_00_13/source/ti/drivers/dpl/HwiP.h
 syscfg/ti_drivers_config.obj: C:/ti/simplelink_msp432p4_sdk_3_30_00_13/source/ti/drivers/Power.h
@@ -70,6 +72,8 @@ C:/ti/ccs910/ccs/tools/compiler/ti-cgt-arm_18.12.2.LTS/include/stdarg.h:
 C:/ti/simplelink_msp432p4_sdk_3_30_00_13/source/ti/display/DisplayUart.h: 
 C:/ti/simplelink_msp432p4_sdk_3_30_00_13/source/ti/drivers/dpl/SemaphoreP.h: 
 C:/ti/simplelink_msp432p4_sdk_3_30_00_13/source/ti/drivers/UART.h: 
+C:/ti/simplelink_msp432p4_sdk_3_30_00_13/source/ti/drivers/GPIO.h: 
+C:/ti/simplelink_msp432p4_sdk_3_30_00_13/source/ti/drivers/gpio/GPIOMSP432.h: 
 C:/ti/simplelink_msp432p4_sdk_3_30_00_13/source/ti/drivers/i2c/I2CMSP432.h: 
 C:/ti/simplelink_msp432p4_sdk_3_30_00_13/source/ti/drivers/dpl/HwiP.h: 
 C:/ti/simplelink_msp432p4_sdk_3_30_00_13/source/ti/drivers/Power.h: 
