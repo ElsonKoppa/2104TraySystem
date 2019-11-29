@@ -9,8 +9,8 @@ Updated version of SIMPLELINK MSP432 SDK must be installed.
 2) Click "yes" when they prompt to install SIMPLELINK SDK Academy.
 
 ## Steps to set up and build project:
-1)Download our submission zip file and unzip the contents into a folder X.
-2)Launch CCS (Only version 9.0 and above)
+1) Download our submission zip file and unzip the contents into a folder X.
+2) Launch CCS (Only version 9.0 and above)
 3) Click File>Switch Workspace>Other and create a new workspace.
 4) Once in the new workspace, click file>import>Code composer studio, CCS Project
 5) At "Select search-directory", click browse and choose the first file that you unzipped into folder X. Tick the discovered project and then click "Finish".
