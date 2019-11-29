@@ -54,6 +54,7 @@ void *mainThread(void *arg0)
     P6REN |= 0x30;
     P6OUT |= 0x30;
 
+
     printf("Startup MPU6050\n\n");
 
     startMPU6050();
@@ -73,7 +74,11 @@ void *mainThread(void *arg0)
 //            //Accel data
             int16_t* accel = getAccel();
 //            checkRange(accel[1]);
-            compute(accel[1]);
+            if(accel[1] == 0){
+                printf("FAILED");
+            } else {
+                compute(accel[1]);
+            }
 //
             printf("----------------------------------------\n");
 //

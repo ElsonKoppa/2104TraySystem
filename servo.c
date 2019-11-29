@@ -45,21 +45,24 @@ void startServo(){
         PWM_start(pwm2);
 
         //PID INIT
-        SetTunings(0.6);
-        Setpoint = -500;
+        SetTunings(0.8);
+        setPoint = -500;
 
 
 }
 
 
-
+//setPoint is the power that i continuously transmit to motor.
+//Error is the extra power to give to the turn_cw turn_ccw power
 void compute(int in)
 {
-    double error;
-   if(Setpoint > in){
-       error = Setpoint - in;
+
+   double error;
+//   double in = (double)input/10;
+   if(setPoint > in){
+       error = setPoint - in;
    } else {
-       error = in - Setpoint;
+       error = in - setPoint;
    }
 
    /*Compute PID Output*/
@@ -67,12 +70,12 @@ void compute(int in)
    //Here i have to keep calling the check range
    Output = kp * error;
    if(in>=-350 && in <=16000){
-       printf("turn LEFT");
+       printf("Turn Right\n");
        turn_cw(error);
 //        turn();
    }
    else if(in<=-650 && in>=-17000){
-       printf("Turn Right");
+       printf("Turn Right\n");
        turn_acw(error);
 //        turn();
    }
@@ -93,15 +96,12 @@ void SetTunings(double Kp)
 
 void turn_cw(int degree){
     printf("turn clockwise by this amount %d\n",degree);
-//    int basePWM = finalPWM;
-//    finalpwm = 0;
     int basePWM = 1000;
-    //make value go lower
-    finalPWM =basePWM + floor((double)degree/16500 * 500);
+    finalPWM =basePWM - floor((double)degree/16500 * 500);
     printf("This is final pwm to be given to motor: %d\n",finalPWM);
     PWM_setDuty(pwm2, finalPWM);
 
-    delayMs(250);
+    delayMs(1000);
 }
 
 void turn_acw(int degree){
@@ -110,12 +110,12 @@ void turn_acw(int degree){
 //    int finalPwm = 0;
     int basePWM = 1000;
     //make value go lower
-    finalPWM =basePWM - floor((double)degree/16500 * 500);
+    finalPWM =basePWM + floor((double)degree/16500 * 500);
     printf("This is final pwm to be given to motor: %d\n",finalPWM);
 
     PWM_setDuty(pwm2, finalPWM);
 
-    delayMs(250);
+    delayMs(1000);
 
 }
 

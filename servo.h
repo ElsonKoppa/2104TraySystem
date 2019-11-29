@@ -19,10 +19,12 @@
 
 
 unsigned long lastTime;
-double Input, Output, Setpoint;
+double Input, Output, setPoint; //
 double errSum, lastErr;
 double kp, ki, kd;
 int finalPWM;
+double lastInput;
+
 
 void startServo();
 void turn_cw(int degree);

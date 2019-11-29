@@ -19,7 +19,7 @@ msp432_mpu6050.obj: C:/ti/simplelink_msp432p4_sdk_3_30_00_13/source/third_party/
 msp432_mpu6050.obj: C:/ti/simplelink_msp432p4_sdk_3_30_00_13/source/third_party/CMSIS/Include/cmsis_ccs.h
 msp432_mpu6050.obj: C:/ti/simplelink_msp432p4_sdk_3_30_00_13/source/third_party/CMSIS/Include/mpu_armv7.h
 msp432_mpu6050.obj: C:/ti/ccs910/ccs/ccs_base/arm/include/system_msp432p401r.h
-msp432_mpu6050.obj: C:/Users/clone/OneDrive/Desktop/2104/2104TraySystem-darrenBranch/msp432_mpu6050.h
+msp432_mpu6050.obj: C:/Users/sjhDA/Desktop/2104/New//\ folder/2104TraySystem/msp432_mpu6050.h
 msp432_mpu6050.obj: C:/ti/ccs910/ccs/tools/compiler/ti-cgt-arm_18.12.2.LTS/include/stdio.h
 msp432_mpu6050.obj: C:/ti/ccs910/ccs/tools/compiler/ti-cgt-arm_18.12.2.LTS/include/_ti_config.h
 msp432_mpu6050.obj: C:/ti/ccs910/ccs/tools/compiler/ti-cgt-arm_18.12.2.LTS/include/linkage.h
@@ -27,7 +27,7 @@ msp432_mpu6050.obj: C:/ti/ccs910/ccs/tools/compiler/ti-cgt-arm_18.12.2.LTS/inclu
 msp432_mpu6050.obj: C:/ti/simplelink_msp432p4_sdk_3_30_00_13/source/ti/drivers/I2C.h
 msp432_mpu6050.obj: C:/ti/ccs910/ccs/tools/compiler/ti-cgt-arm_18.12.2.LTS/include/stdbool.h
 msp432_mpu6050.obj: C:/ti/ccs910/ccs/tools/compiler/ti-cgt-arm_18.12.2.LTS/include/stddef.h
-msp432_mpu6050.obj: C:/Users/clone/OneDrive/Desktop/2104/2104TraySystem-darrenBranch/servo.h
+msp432_mpu6050.obj: C:/Users/sjhDA/Desktop/2104/New//\ folder/2104TraySystem/servo.h
 msp432_mpu6050.obj: C:/ti/simplelink_msp432p4_sdk_3_30_00_13/source/ti/posix/ccs/unistd.h
 msp432_mpu6050.obj: C:/ti/simplelink_msp432p4_sdk_3_30_00_13/source/ti/posix/ccs/sys/types.h
 msp432_mpu6050.obj: C:/ti/simplelink_msp432p4_sdk_3_30_00_13/source/ti/posix/ccs/sys/_internal.h
@@ -35,7 +35,7 @@ msp432_mpu6050.obj: C:/ti/ccs910/ccs/tools/compiler/ti-cgt-arm_18.12.2.LTS/inclu
 msp432_mpu6050.obj: C:/ti/ccs910/ccs/tools/compiler/ti-cgt-arm_18.12.2.LTS/include/abi_prefix.h
 msp432_mpu6050.obj: C:/ti/ccs910/ccs/tools/compiler/ti-cgt-arm_18.12.2.LTS/include/xlocale/_time.h
 msp432_mpu6050.obj: C:/ti/simplelink_msp432p4_sdk_3_30_00_13/source/ti/drivers/PWM.h
-msp432_mpu6050.obj: C:/Users/clone/OneDrive/Desktop/2104/2104TraySystem-darrenBranch/Debug/syscfg/ti_drivers_config.h
+msp432_mpu6050.obj: C:/Users/sjhDA/Desktop/2104/New//\ folder/2104TraySystem/Debug/syscfg/ti_drivers_config.h
 msp432_mpu6050.obj: C:/ti/simplelink_msp432p4_sdk_3_30_00_13/source/ti/devices/DeviceFamily.h
 
 ../msp432_mpu6050.c: 
@@ -57,7 +57,7 @@ C:/ti/simplelink_msp432p4_sdk_3_30_00_13/source/third_party/CMSIS/Include/cmsis_
 C:/ti/simplelink_msp432p4_sdk_3_30_00_13/source/third_party/CMSIS/Include/cmsis_ccs.h: 
 C:/ti/simplelink_msp432p4_sdk_3_30_00_13/source/third_party/CMSIS/Include/mpu_armv7.h: 
 C:/ti/ccs910/ccs/ccs_base/arm/include/system_msp432p401r.h: 
-C:/Users/clone/OneDrive/Desktop/2104/2104TraySystem-darrenBranch/msp432_mpu6050.h: 
+C:/Users/sjhDA/Desktop/2104/New//\ folder/2104TraySystem/msp432_mpu6050.h: 
 C:/ti/ccs910/ccs/tools/compiler/ti-cgt-arm_18.12.2.LTS/include/stdio.h: 
 C:/ti/ccs910/ccs/tools/compiler/ti-cgt-arm_18.12.2.LTS/include/_ti_config.h: 
 C:/ti/ccs910/ccs/tools/compiler/ti-cgt-arm_18.12.2.LTS/include/linkage.h: 
@@ -65,7 +65,7 @@ C:/ti/ccs910/ccs/tools/compiler/ti-cgt-arm_18.12.2.LTS/include/stdarg.h:
 C:/ti/simplelink_msp432p4_sdk_3_30_00_13/source/ti/drivers/I2C.h: 
 C:/ti/ccs910/ccs/tools/compiler/ti-cgt-arm_18.12.2.LTS/include/stdbool.h: 
 C:/ti/ccs910/ccs/tools/compiler/ti-cgt-arm_18.12.2.LTS/include/stddef.h: 
-C:/Users/clone/OneDrive/Desktop/2104/2104TraySystem-darrenBranch/servo.h: 
+C:/Users/sjhDA/Desktop/2104/New//\ folder/2104TraySystem/servo.h: 
 C:/ti/simplelink_msp432p4_sdk_3_30_00_13/source/ti/posix/ccs/unistd.h: 
 C:/ti/simplelink_msp432p4_sdk_3_30_00_13/source/ti/posix/ccs/sys/types.h: 
 C:/ti/simplelink_msp432p4_sdk_3_30_00_13/source/ti/posix/ccs/sys/_internal.h: 
@@ -73,5 +73,5 @@ C:/ti/ccs910/ccs/tools/compiler/ti-cgt-arm_18.12.2.LTS/include/../include/time.h
 C:/ti/ccs910/ccs/tools/compiler/ti-cgt-arm_18.12.2.LTS/include/abi_prefix.h: 
 C:/ti/ccs910/ccs/tools/compiler/ti-cgt-arm_18.12.2.LTS/include/xlocale/_time.h: 
 C:/ti/simplelink_msp432p4_sdk_3_30_00_13/source/ti/drivers/PWM.h: 
-C:/Users/clone/OneDrive/Desktop/2104/2104TraySystem-darrenBranch/Debug/syscfg/ti_drivers_config.h: 
+C:/Users/sjhDA/Desktop/2104/New//\ folder/2104TraySystem/Debug/syscfg/ti_drivers_config.h: 
 C:/ti/simplelink_msp432p4_sdk_3_30_00_13/source/ti/devices/DeviceFamily.h: 

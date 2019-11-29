@@ -31,7 +31,7 @@ uint8_t afs_sel = 3; //accel split
 void delayMs(int n) {
     // Setting 1 cycle of Timer32 to be 1ms
     int i;
-    TIMER32_1->LOAD = 30000 - 1;                  // Load timer with the number of ticks of the clock per millisecond (Clock rate/1000 e.g. 3Mhz/3 --> 3000)
+    TIMER32_1->LOAD = 48000 - 1;                  // Load timer with the number of ticks of the clock per millisecond (Clock rate/1000 e.g. 3Mhz/3 --> 3000)
     TIMER32_1->CONTROL = 0xC2;                   // Set Timer32 config: no prescaler, periodic wrapping mode, disable interrupt, 32-bit timer
 
     // Repeat the 1ms cycle of Timer32 n times
@@ -202,25 +202,6 @@ int16_t* getFinalAngle(int16_t* degree, int16_t* accel)
     return finalData;
 }
 
-/*
-static int16_t* gyroOffset;
-void calibrateMPU6050(){
-    printf("Calibrating MPU6050, please hold the device steady to initialise base offset...");
-    delayMs(10000);
-    *gyroOffset = getAccel();
-    printf("\n\nGyro Offset in calibration XYZ = %d %d %d\n", gyroOffset[0], gyroOffset[1], gyroOffset[2]);
-    printf("Calibration completed.\n");
-    //return gyroOffset;
-}
-getGyroData(){
-    printf("Calibrated Offset XYZ = %d %d %d\n", gyroOffset[0], gyroOffset[1], gyroOffset[2]);
-    int16_t* rawGyro = getAccel();
-    printf("rawGyro XYZ = %d %d %d\n", rawGyro[0], rawGyro[1], rawGyro[2]);
-    rawGyro[0] -= gyroOffset[0];
-    rawGyro[1] -= gyroOffset[1];
-    rawGyro[2] -= gyroOffset[2];
-    printf("Gyro with offset XYZ = %d %d %d\n\n\n", rawGyro[0], rawGyro[1], rawGyro[2]);
-}
-*/
+
 
 //=============================================================================================

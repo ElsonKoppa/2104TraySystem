@@ -18,13 +18,13 @@ servo.obj: C:/ti/simplelink_msp432p4_sdk_3_30_00_13/source/ti/posix/ccs/sys/_int
 servo.obj: C:/ti/ccs910/ccs/tools/compiler/ti-cgt-arm_18.12.2.LTS/include/../include/time.h
 servo.obj: C:/ti/ccs910/ccs/tools/compiler/ti-cgt-arm_18.12.2.LTS/include/abi_prefix.h
 servo.obj: C:/ti/ccs910/ccs/tools/compiler/ti-cgt-arm_18.12.2.LTS/include/xlocale/_time.h
-servo.obj: C:/Users/clone/OneDrive/Desktop/2104/2104TraySystem-darrenBranch/servo.h
+servo.obj: C:/Users/sjhDA/Desktop/2104/New//\ folder/2104TraySystem/servo.h
 servo.obj: C:/ti/simplelink_msp432p4_sdk_3_30_00_13/source/ti/drivers/PWM.h
-servo.obj: C:/Users/clone/OneDrive/Desktop/2104/2104TraySystem-darrenBranch/Debug/syscfg/ti_drivers_config.h
+servo.obj: C:/Users/sjhDA/Desktop/2104/New//\ folder/2104TraySystem/Debug/syscfg/ti_drivers_config.h
 servo.obj: C:/ti/simplelink_msp432p4_sdk_3_30_00_13/source/ti/devices/DeviceFamily.h
 servo.obj: C:/ti/simplelink_msp432p4_sdk_3_30_00_13/source/ti/drivers/I2C.h
 servo.obj: C:/ti/ccs910/ccs/tools/compiler/ti-cgt-arm_18.12.2.LTS/include/stdbool.h
-servo.obj: C:/Users/clone/OneDrive/Desktop/2104/2104TraySystem-darrenBranch/msp432_mpu6050.h
+servo.obj: C:/Users/sjhDA/Desktop/2104/New//\ folder/2104TraySystem/msp432_mpu6050.h
 servo.obj: C:/ti/ccs910/ccs/tools/compiler/ti-cgt-arm_18.12.2.LTS/include/stdio.h
 servo.obj: C:/ti/ccs910/ccs/tools/compiler/ti-cgt-arm_18.12.2.LTS/include/stdarg.h
 servo.obj: C:/ti/ccs910/ccs/tools/compiler/ti-cgt-arm_18.12.2.LTS/include/math.h
@@ -49,13 +49,13 @@ C:/ti/simplelink_msp432p4_sdk_3_30_00_13/source/ti/posix/ccs/sys/_internal.h:
 C:/ti/ccs910/ccs/tools/compiler/ti-cgt-arm_18.12.2.LTS/include/../include/time.h: 
 C:/ti/ccs910/ccs/tools/compiler/ti-cgt-arm_18.12.2.LTS/include/abi_prefix.h: 
 C:/ti/ccs910/ccs/tools/compiler/ti-cgt-arm_18.12.2.LTS/include/xlocale/_time.h: 
-C:/Users/clone/OneDrive/Desktop/2104/2104TraySystem-darrenBranch/servo.h: 
+C:/Users/sjhDA/Desktop/2104/New//\ folder/2104TraySystem/servo.h: 
 C:/ti/simplelink_msp432p4_sdk_3_30_00_13/source/ti/drivers/PWM.h: 
-C:/Users/clone/OneDrive/Desktop/2104/2104TraySystem-darrenBranch/Debug/syscfg/ti_drivers_config.h: 
+C:/Users/sjhDA/Desktop/2104/New//\ folder/2104TraySystem/Debug/syscfg/ti_drivers_config.h: 
 C:/ti/simplelink_msp432p4_sdk_3_30_00_13/source/ti/devices/DeviceFamily.h: 
 C:/ti/simplelink_msp432p4_sdk_3_30_00_13/source/ti/drivers/I2C.h: 
 C:/ti/ccs910/ccs/tools/compiler/ti-cgt-arm_18.12.2.LTS/include/stdbool.h: 
-C:/Users/clone/OneDrive/Desktop/2104/2104TraySystem-darrenBranch/msp432_mpu6050.h: 
+C:/Users/sjhDA/Desktop/2104/New//\ folder/2104TraySystem/msp432_mpu6050.h: 
 C:/ti/ccs910/ccs/tools/compiler/ti-cgt-arm_18.12.2.LTS/include/stdio.h: 
 C:/ti/ccs910/ccs/tools/compiler/ti-cgt-arm_18.12.2.LTS/include/stdarg.h: 
 C:/ti/ccs910/ccs/tools/compiler/ti-cgt-arm_18.12.2.LTS/include/math.h: 

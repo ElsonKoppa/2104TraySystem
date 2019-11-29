@@ -18,9 +18,9 @@ i2cmasterexample1.obj: C:/ti/simplelink_msp432p4_sdk_3_30_00_13/source/ti/posix/
 i2cmasterexample1.obj: C:/ti/ccs910/ccs/tools/compiler/ti-cgt-arm_18.12.2.LTS/include/../include/time.h
 i2cmasterexample1.obj: C:/ti/ccs910/ccs/tools/compiler/ti-cgt-arm_18.12.2.LTS/include/abi_prefix.h
 i2cmasterexample1.obj: C:/ti/ccs910/ccs/tools/compiler/ti-cgt-arm_18.12.2.LTS/include/xlocale/_time.h
-i2cmasterexample1.obj: C:/Users/clone/OneDrive/Desktop/2104/2104TraySystem-darrenBranch/servo.h
+i2cmasterexample1.obj: C:/Users/sjhDA/Desktop/2104/New//\ folder/2104TraySystem/servo.h
 i2cmasterexample1.obj: C:/ti/simplelink_msp432p4_sdk_3_30_00_13/source/ti/drivers/PWM.h
-i2cmasterexample1.obj: C:/Users/clone/OneDrive/Desktop/2104/2104TraySystem-darrenBranch/Debug/syscfg/ti_drivers_config.h
+i2cmasterexample1.obj: C:/Users/sjhDA/Desktop/2104/New//\ folder/2104TraySystem/Debug/syscfg/ti_drivers_config.h
 i2cmasterexample1.obj: C:/ti/simplelink_msp432p4_sdk_3_30_00_13/source/ti/devices/DeviceFamily.h
 i2cmasterexample1.obj: C:/ti/simplelink_msp432p4_sdk_3_30_00_13/source/ti/drivers/I2C.h
 i2cmasterexample1.obj: C:/ti/ccs910/ccs/tools/compiler/ti-cgt-arm_18.12.2.LTS/include/stdbool.h
@@ -56,9 +56,9 @@ C:/ti/simplelink_msp432p4_sdk_3_30_00_13/source/ti/posix/ccs/sys/_internal.h:
 C:/ti/ccs910/ccs/tools/compiler/ti-cgt-arm_18.12.2.LTS/include/../include/time.h: 
 C:/ti/ccs910/ccs/tools/compiler/ti-cgt-arm_18.12.2.LTS/include/abi_prefix.h: 
 C:/ti/ccs910/ccs/tools/compiler/ti-cgt-arm_18.12.2.LTS/include/xlocale/_time.h: 
-C:/Users/clone/OneDrive/Desktop/2104/2104TraySystem-darrenBranch/servo.h: 
+C:/Users/sjhDA/Desktop/2104/New//\ folder/2104TraySystem/servo.h: 
 C:/ti/simplelink_msp432p4_sdk_3_30_00_13/source/ti/drivers/PWM.h: 
-C:/Users/clone/OneDrive/Desktop/2104/2104TraySystem-darrenBranch/Debug/syscfg/ti_drivers_config.h: 
+C:/Users/sjhDA/Desktop/2104/New//\ folder/2104TraySystem/Debug/syscfg/ti_drivers_config.h: 
 C:/ti/simplelink_msp432p4_sdk_3_30_00_13/source/ti/devices/DeviceFamily.h: 
 C:/ti/simplelink_msp432p4_sdk_3_30_00_13/source/ti/drivers/I2C.h: 
 C:/ti/ccs910/ccs/tools/compiler/ti-cgt-arm_18.12.2.LTS/include/stdbool.h: 
